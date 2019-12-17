@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oneblog.dao.userDao">
+    <select id="selectStudent" resultType="com.oneblog.entity.User">
+        select * from user
+    </select>
+
+    <select id="loginuser" resultType="com.oneblog.entity.User">
+        select * from user where username=#{username} and password=#{password}
+    </select>
+
+    <select id="usernameishave" resultType="com.oneblog.entity.User">
+        select * from user where username=#{username}
+    </select>
+
+    <select id="emailishave" resultType="com.oneblog.entity.User">
+        select * from user where email=#{email}
+    </select>
+
+    <insert id="adduser" parameterType="com.oneblog.entity.User">
+        insert into user(username,password,email,tel,sex,born) value (#{username},#{password},#{email},#{tel},#{sex},#{born})
+    </insert>
+</mapper>
